@@ -1,0 +1,15 @@
+---
+- hosts: wordpress-web
+  roles:
+    -httpd
+    -php
+  tasks:
+    - copy: src=wgetrc dest=/etc/wgetrc
+    - get_url: url=http://wordpress.org/latest.tar.gz dest=/opt
+    - unarchive: src=/opt/wordpress-4.9.2.tar.gz dest=/var/www/html
+
+- hosts: wordpress-db
+  roles:
+     -mariadb
+           
+

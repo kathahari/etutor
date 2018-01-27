@@ -1,0 +1,4 @@
+---
+# tasks file for mariadb
+- yum: name=mariadb-server state=present
+- service: name=mariadb state=started enabled=yes
